@@ -1,0 +1,156 @@
+<header class="topbar">
+  <div>
+    <span class="tag">Broker Account Management</span>
+    <h1>Accounts</h1>
+    <p>Add, validate, connect and manage broker accounts.</p>
+  </div>
+
+  <div class="actions">
+    <button class="dark-btn">Refresh Session</button>
+    <button class="primary-btn">+ Add Account</button>
+  </div>
+</header>
+
+<section class="summary-grid">
+  <div class="summary-card">
+    <span>Total Accounts</span>
+    <h2>12</h2>
+    <p>All brokers combined</p>
+  </div>
+
+  <div class="summary-card success">
+    <span>Connected</span>
+    <h2>09</h2>
+    <p>Live API sessions</p>
+  </div>
+
+  <div class="summary-card warning">
+    <span>Warning</span>
+    <h2>02</h2>
+    <p>Token refresh needed</p>
+  </div>
+
+  <div class="summary-card danger">
+    <span>Disconnected</span>
+    <h2>01</h2>
+    <p>Reconnect required</p>
+  </div>
+</section>
+
+<section class="form-panel">
+  <div class="panel-head">
+    <div>
+      <h3>Add Broker Account</h3>
+      <p>Enter API credentials for Zerodha, AliceBlue or Zenam.</p>
+    </div>
+
+    <span class="secure">● Secure Credentials</span>
+  </div>
+
+  <div class="form-grid">
+    <div class="field">
+      <label>Broker Select</label>
+      <select>
+        <option>Zerodha</option>
+        <option>AliceBlue</option>
+        <option>Zenam</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Client ID</label>
+      <input type="text" placeholder="ACC001" />
+    </div>
+
+    <div class="field">
+      <label>Account Name</label>
+      <input type="text" placeholder="Main Master Account" />
+    </div>
+
+    <div class="field">
+      <label>API Key</label>
+      <input type="password" placeholder="Enter API key" />
+    </div>
+
+    <div class="field">
+      <label>API Secret</label>
+      <input type="password" placeholder="Enter API secret" />
+    </div>
+
+    <div class="field">
+      <label>Access Token</label>
+      <input type="password" placeholder="Enter access token" />
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <button class="light-btn">Validate Account</button>
+    <button class="dark-btn">Test Connection</button>
+    <button class="primary-btn">Save Account</button>
+  </div>
+</section>
+
+<section class="table-panel">
+  <div class="panel-head">
+    <div>
+      <h3>Broker Accounts List</h3>
+      <p>Manage connection status, master-child role and actions.</p>
+    </div>
+
+    <div class="filters">
+      <input type="text" placeholder="Search broker / client id..." />
+      <select>
+        <option>All Status</option>
+        <option>Connected</option>
+        <option>Warning</option>
+        <option>Disconnected</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="account-list">
+    <div class="account-card" *ngFor="let acc of accounts">
+      <div class="account-main">
+        <div class="broker-cell">
+          <div class="broker-icon">{{ acc.short }}</div>
+          <div>
+            <span>{{ acc.broker }}</span>
+            <h4>{{ acc.name }}</h4>
+            <p>{{ acc.clientId }}</p>
+          </div>
+        </div>
+
+        <span [class]="acc.statusClass">{{ acc.status }}</span>
+      </div>
+
+      <div class="account-details">
+        <div>
+          <span>Role</span>
+          <b [class]="acc.roleClass">{{ acc.role }}</b>
+        </div>
+
+        <div>
+          <span>Connection</span>
+          <b>{{ acc.connection }}</b>
+        </div>
+
+        <div>
+          <span>Session</span>
+          <b>{{ acc.session }}</b>
+        </div>
+
+        <div>
+          <span>Last Sync</span>
+          <b>{{ acc.sync }}</b>
+        </div>
+      </div>
+
+      <div class="row-actions">
+        <button class="mini green">Connect</button>
+        <button class="mini blue">Validate</button>
+        <button class="mini">Edit</button>
+        <button class="mini red">Delete</button>
+      </div>
+    </div>
+  </div>
+</section>
