@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { NgFor } from '@angular/common';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-master-child',
-  imports: [NgFor, RouterLink],
+  imports: [NgFor],
   templateUrl: './master-child.html',
   styleUrl: './master-child.css'
 })

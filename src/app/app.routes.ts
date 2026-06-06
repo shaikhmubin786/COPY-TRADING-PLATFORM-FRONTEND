@@ -14,6 +14,7 @@ import { BrokerSettings } from './pages/broker-settings/broker-settings';
 import { Reports } from './pages/reports/reports';
 import { OwnerLogin } from './pages/owner-login/owner-login';
 import { LayoutComponent } from './layout/layout';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -22,6 +23,7 @@ export const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
+    canActivate: [authGuard],
     children: [
       { path: 'dashboard', component: Dashboard },
       { path: 'accounts', component: Accounts },

@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { NgFor } from '@angular/common';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-notifications',
-  imports: [NgFor, RouterLink],
+  imports: [NgFor],
   templateUrl: './notifications.html',
   styleUrl: './notifications.css'
 })

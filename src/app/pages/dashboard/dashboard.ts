@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { NgFor } from '@angular/common';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [NgFor, RouterLink],
+  imports: [NgFor],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css'
 })

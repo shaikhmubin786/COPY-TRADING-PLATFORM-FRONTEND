@@ -56,12 +56,18 @@
         <p>Enter your assigned User ID and Password to continue.</p>
       </div>
 
-      <form>
+      <form (submit)="onLogin()">
+        @if (errorMessage) {
+          <div class="error-msg" style="color: #ef4444; font-weight: 700; font-size: 14px; margin-bottom: 18px; border: 1px solid rgba(239, 68, 68, 0.25); background: rgba(239, 68, 68, 0.08); padding: 12px; border-radius: 14px; text-align: center;">
+            {{ errorMessage }}
+          </div>
+        }
+
         <div class="field">
           <label>Email / User ID</label>
           <div class="input-box">
             <span>👤</span>
-            <input type="text" placeholder="Enter email or user id" />
+            <input type="text" name="username" [(ngModel)]="username" placeholder="Enter email or user id" required />
           </div>
         </div>
 
@@ -69,7 +75,7 @@
           <label>Password</label>
           <div class="input-box">
             <span>🔒</span>
-            <input type="password" placeholder="Enter password" />
+            <input type="password" name="password" [(ngModel)]="password" placeholder="Enter password" required />
           </div>
         </div>
 
@@ -80,7 +86,7 @@
           </label>
         </div>
 
-        <button type="button" routerLink="/dashboard" class="login-btn">
+        <button type="submit" class="login-btn">
           Login to Dashboard
         </button>
 
