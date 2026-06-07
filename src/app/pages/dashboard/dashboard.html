@@ -1,30 +1,4 @@
-<div class="terminal-page">
-  <header class="top-nav">
-    <div class="brand">
-      <div class="logo">CT</div>
-      <div>
-        <h2>CopyTrade</h2>
-        <p>Trading Terminal</p>
-      </div>
-    </div>
-
-    <nav class="nav-menu">
-      <a class="active">Trading</a>
-      <a routerLink="/accounts">Accounts</a>
-      <a routerLink="/settings">Settings</a>
-      <a routerLink="/orders">Orders</a>
-      <a routerLink="/holdings">Holdings</a>
-      <a routerLink="/notifications">Notifications</a>
-    </nav>
-
-    <div class="user-area">
-      <span class="status-dot"></span>
-      <span>Admin</span>
-      <button routerLink="/login">Logout</button>
-    </div>
-  </header>
-
-  <main class="terminal-content">
+<main class="terminal-content">
     <section class="control-bar">
       <div class="account-select">
         <label>Select Account</label>
@@ -44,15 +18,15 @@
       </div>
     </section>
 
-    <section class="notice-strip">
+    <!--<section class="notice-strip">
       <span>ⓘ</span>
       <p>
         Filter: Account <b>All Accounts</b>. Select a specific account to view or trade individually.
       </p>
       <button>×</button>
-    </section>
+    </section>-->
 
-    <section class="tab-bar">
+    <!--<section class="tab-bar">
       <button class="active">Summary</button>
       <button routerLink="/positions">Positions</button>
       <button routerLink="/orders">Orders</button>
@@ -61,7 +35,7 @@
       <button>MarketWatch</button>
       <button>Trade</button>
       <button routerLink="/notifications">Notifications</button>
-    </section>
+    </section>-->
 
     <section class="quick-stats">
       <div class="stat-card" *ngFor="let item of stats">
@@ -197,4 +171,3 @@
       </div>
     </section>
   </main>
-</div>

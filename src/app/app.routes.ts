@@ -13,21 +13,30 @@ import { Notifications } from './pages/notifications/notifications';
 import { BrokerSettings } from './pages/broker-settings/broker-settings';
 import { Reports } from './pages/reports/reports';
 import { OwnerLogin } from './pages/owner-login/owner-login';
+import { LayoutComponent } from './layout/layout';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: Login },
-  { path: 'dashboard', component: Dashboard },
-  { path: 'accounts', component: Accounts },
-  { path: 'master-child', component: MasterChild },
-  { path: 'orders', component: Orders },
-  { path: 'positions', component: Positions },
-  { path: 'holdings', component: Holdings },
-  { path: 'logs', component: Logs },
-  { path: 'settings', component: Settings },
-  { path: 'risk-management', component: RiskManagement },
-  { path: 'notifications', component: Notifications },
-  { path: 'broker-settings', component: BrokerSettings },
-  { path: 'reports', component: Reports },
   { path: 'owner-login', component: OwnerLogin },
+  {
+    path: '',
+    component: LayoutComponent,
+    canActivate: [authGuard],
+    children: [
+      { path: 'dashboard', component: Dashboard },
+      { path: 'accounts', component: Accounts },
+      { path: 'master-child', component: MasterChild },
+      { path: 'orders', component: Orders },
+      { path: 'positions', component: Positions },
+      { path: 'holdings', component: Holdings },
+      { path: 'logs', component: Logs },
+      { path: 'settings', component: Settings },
+      { path: 'risk-management', component: RiskManagement },
+      { path: 'notifications', component: Notifications },
+      { path: 'broker-settings', component: BrokerSettings },
+      { path: 'reports', component: Reports },
+    ]
+  }
 ];

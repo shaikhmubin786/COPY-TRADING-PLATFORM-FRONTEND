@@ -1,38 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
-  imports: [],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './navbar.html',
-  styleUrl: './navbar.css'
+  styleUrl: './navbar.css',
+  standalone: true
 })
 export class Navbar {
+  private authService = inject(AuthService);
+  private router = inject(Router);
 
-  currentTime = '';
-
-  ngOnInit() {
-
-    this.updateTime();
-
-    setInterval(() => {
-      this.updateTime();
-    }, 1000);
-
+  logout(): void {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
-
-  updateTime() {
-
-    const now = new Date();
-
-    this.currentTime = now.toLocaleTimeString(
-      'en-IN',
-      {
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
-      }
-    );
-
-  }
-
 }

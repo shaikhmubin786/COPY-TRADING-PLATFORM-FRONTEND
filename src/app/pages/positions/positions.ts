@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { NgFor } from '@angular/common';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-positions',
-  imports: [NgFor, RouterLink],
+  imports: [NgFor],
   templateUrl: './positions.html',
   styleUrl: './positions.css'
 })
