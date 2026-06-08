@@ -12,19 +12,13 @@ import { RiskManagement } from './pages/risk-management/risk-management';
 import { Notifications } from './pages/notifications/notifications';
 import { BrokerSettings } from './pages/broker-settings/broker-settings';
 import { Reports } from './pages/reports/reports';
-import { OwnerLogin } from './pages/owner-login/owner-login';
 import { LayoutComponent } from './layout/layout';
 import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: Login },
-  { path: 'owner-login', component: OwnerLogin },
-  {
-    path: '',
-    component: LayoutComponent,
-    canActivate: [authGuard],
-    children: [
+  { path: '', component: LayoutComponent , canActivate: [authGuard] , children: [
       { path: 'dashboard', component: Dashboard },
       { path: 'accounts', component: Accounts },
       { path: 'master-child', component: MasterChild },

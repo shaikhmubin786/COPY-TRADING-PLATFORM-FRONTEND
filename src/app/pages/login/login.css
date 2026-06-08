@@ -370,23 +370,6 @@ form {
   background: #020617;
 }
 
-.administrator-btn {
-  margin-top: 16px;
-  width: 100%;
-  height: 50px;
-  border: none;
-  border-radius: 16px;
-  background: linear-gradient(135deg, #312e81, #0891b2);
-  color: white;
-  font-weight: 950;
-  cursor: pointer;
-  transition: 0.3s ease;
-  box-shadow: 0 14px 32px rgba(49, 46, 129, 0.25);
-}
-
-.administrator-btn:hover {
-  transform: translateY(-4px);
-}
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(24px); }
